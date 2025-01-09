@@ -1,6 +1,4 @@
 class MainPageConstants:
-    START_PAGE = "https://qa-scooter.praktikum-services.ru/"
-    DZEN_URL = "https://dzen.ru/?yredirect=true"
     QUESTION_ONE_ANSWER = "Сутки — 400 рублей. Оплата курьеру — наличными или картой."
     QUESTION_TWO_ANSWER = "Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим."
     QUESTION_THREE_ANSWER = "Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30."
@@ -16,3 +14,7 @@ class OrderPageConstants:
     ADDRESS = ["Пушкина 1", "Профсоюзная 123"]
     PHONE = ["+71234567890", "+70987654321"]
     COMMENT = ["Привет Привет", "Пока Пока"]
+
+class URLSConstants:
+    START_PAGE = "https://qa-scooter.praktikum-services.ru/"
+    DZEN_URL = "https://dzen.ru/?yredirect=true"

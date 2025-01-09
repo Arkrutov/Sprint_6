@@ -22,4 +22,4 @@ class OrderPageLocators:
     BUTTON_ORDER = (By.XPATH, "//div[contains(@class, 'Order_Buttons')]//button[text()='Заказать']")  # кнопка заказать
     BUTTON_ACCEPTION_POP_UP_YES = (By.XPATH, "//button[text()='Да']")  # кнопка Да на поп-апе подтверждения заказа
     BUTTON_SHOW_STATUS = (By.XPATH, "//button[text()='Посмотреть статус']")  # кнопка Посмотреть статус
-
+    SCOOTER_BUTTON = (By.XPATH, "//a[(@href= '/')]")  # Кнопка самокат в хэдере

@@ -1,19 +1,13 @@
 import allure
 import pytest
-from selenium import webdriver
 
-from constants import MainPageConstants
+from constants import MainPageConstants, URLSConstants
 from locators.main_page_locators import MainPageLocators
+from pages.base_page import BasePage
 from pages.main_page import MainPage
 
 
 class TestMainPage:
-
-    driver = None
-
-    @classmethod
-    def setup_class(cls):
-        cls.driver = webdriver.Firefox()
 
     @pytest.mark.parametrize("answer, question_locator, answer_locator", [
         (MainPageConstants.QUESTION_ONE_ANSWER, MainPageLocators.ACCORDION_QUESTION_0,
@@ -46,9 +40,10 @@ class TestMainPage:
     )
     @allure.title("Проверка блока Вопросы о важном")
     @allure.description("Раскрываем вопрос и проверяем корректность текста ответа")
-    def test_faq(self, answer, question_locator, answer_locator):
-        main_page = MainPage(self.driver)
-        main_page.open_page(MainPageConstants.START_PAGE)
+    def test_faq(self, answer, question_locator, answer_locator, driver):
+        base_page = BasePage(driver)
+        main_page = MainPage(driver)
+        base_page.open_page(URLSConstants.START_PAGE)
         exp_text = answer
         text = main_page.get_faq_text(
             question_locator=question_locator,
@@ -56,8 +51,4 @@ class TestMainPage:
         )
         assert text == exp_text
 
-
-    @classmethod
-    def teardown_class(cls):
-        cls.driver.quit()
 

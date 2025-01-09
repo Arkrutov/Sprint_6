@@ -19,7 +19,6 @@ class MainPageLocators:
     ACCORDION_QUESTION_7 = (By.XPATH, "//div[@id='accordion__heading-7']") #восьмая кнопка FAQ
     ACCORDION_ANSWER_7 = (By.XPATH, "//div[@id='accordion__panel-7']//p")  #восьмой ответ FAQ
     YANDEX_BUTTON = (By.XPATH, "//a[contains(@href, 'yandex.ru')]")  #Кнопка яндекс в хэдере
-    SCOOTER_BUTTON = (By.XPATH, "//a[(@href= '/')]")  # Кнопка самокат в хэдере
     BUTTON_ORDER_IN_HEADER = (By.XPATH, "(//button[contains(., 'Заказать')])[1]")  #Кнопка заказать в хэдере
     BUTTON_ORDER_IN_CENTER = (By.XPATH, "(//button[contains(., 'Заказать')])[2]")  #Кнопка заказать в хэдере
     TEXT_ABOUT_SCOOTER = (By.XPATH, "//div[text()='Привезём его прямо к вашей двери,']")  #Текст на главной

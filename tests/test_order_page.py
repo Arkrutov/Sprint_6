@@ -1,9 +1,11 @@
 import allure
 import pytest
 
-from constants import MainPageConstants, OrderPageConstants
+from constants import OrderPageConstants, URLSConstants
 from locators.main_page_locators import MainPageLocators
 from locators.order_page_locators import OrderPageLocators
+from pages.base_page import BasePage
+from pages.dzen_page import DzenPage
 from pages.main_page import MainPage
 from pages.order_page import OrderPage
 
@@ -48,10 +50,12 @@ class TestOrderPage:
                    date_selector_locator, rent_period_locator, color_locator, comment_text
                    ):
 
+        base_page = BasePage(driver)
         main_page = MainPage(driver)
         order_page = OrderPage(driver)
+        dzen_page = DzenPage(driver)
 
-        main_page.open_page(MainPageConstants.START_PAGE)
+        base_page.open_page(URLSConstants.START_PAGE)
         main_page.order_click(order_button)
         order_page.fill_for_who_form(
             name=name,
@@ -67,4 +71,8 @@ class TestOrderPage:
             comment_text=comment_text,
         )
         order_page.click_scooter_button()
+        main_page_text = main_page.get_main_scooter_text()
+        assert main_page_text == 'Привезём его прямо к вашей двери,\nа когда накатаетесь — заберём'
         main_page.click_yandex_button()
+        dzen_text = dzen_page.get_dzen_find_text()
+        assert dzen_text == 'Новости'
